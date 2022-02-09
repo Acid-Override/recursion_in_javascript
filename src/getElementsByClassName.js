@@ -3,9 +3,24 @@
 //   return document.getElementsByClassName(className);
 // };
 
-// But instead we're going to implement it from scratch:
 
+var getElementsByClassName = function (className, node = document.body) {
 
-var getElementsByClassName = function(className) {
-  // Your code here
+  var result = [];
+  if (node.classList.contains(className)) {
+    console.log(node);
+    result = result.concat(node);
+  }
+
+  if (node.hasChildNodes()) {
+    for (var i = 0; i < node.children.length; i++) {
+      result = result.concat(getElementsByClassName(className, node.children[i]))
+    }
+  }
+  return result;
 };
+
+
+
+
+

@@ -16,7 +16,14 @@
 // nthFibonacci(4); // => 3
 // etc...
 
-var nthFibonacci = function(n) {
-  // Your code here
+var nthFibonacci = function (n) {
+  //base case
+  if (n === 1) {
+    return 1;
+  } else if (n === 0) {
+    return 0;
+  }
+  //recursive call
+  return nthFibonacci(n - 1) + nthFibonacci(n - 2);
 };
 
